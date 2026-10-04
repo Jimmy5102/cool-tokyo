@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Cool Tokyo</title>
+
+    <link
+        rel="stylesheet"
+        href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    />
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='style.css') }}"
+    />
+</head>
+
+<body>
+
+    <header>
+        <h1>🌡️ Cool Tokyo</h1>
+        <p>Find a safer place to escape the heat.</p>
+    </header>
+
+    <main>
+
+        <section class="risk-card">
+            <h2>Current Heat Risk</h2>
+            <p id="wbgt">WBGT: Loading...</p>
+        </section>
+
+        <section>
+            <h2>Cooling Shelters</h2>
+            <div id="map"></div>
+        </section>
+
+    </main>
+
+    <script
+        src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js">
+    </script>
+
+    <script src="{{ url_for('static', filename='app.js') }}"></script>
+
+</body>
+</html>
