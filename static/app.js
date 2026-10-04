@@ -1,9 +1,14 @@
 const map = L.map("map").setView([35.681236, 139.767125], 12);
 
+const maptilerKey = "{{ maptiler_api_key }}";
+
 L.tileLayer(
-    "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+    `https://api.maptiler.com/maps/streets-v2/{z}/{x}/{y}.png?key=${maptilerKey}`,
     {
-        attribution: "&copy; OpenStreetMap contributors"
+        tileSize: 512,
+        zoomOffset: -1,
+        attribution:
+            '&copy; MapTiler &copy; OpenStreetMap contributors'
     }
 ).addTo(map);
 
