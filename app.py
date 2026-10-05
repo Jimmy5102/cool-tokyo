@@ -8,6 +8,7 @@ app = Flask(__name__)
 
 MAPTILER_API_KEY = os.getenv("MAPTILER_API_KEY")
 
+print("MapTiler key loaded:", bool(MAPTILER_API_KEY))
 
 @app.route("/")
 def home():
@@ -16,6 +17,9 @@ def home():
         maptiler_api_key=MAPTILER_API_KEY
     )
 
-
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5000, debug=True)
+    app.run(
+        host="0.0.0.0",
+        port=5000,
+        debug=True
+    )

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -38,15 +39,15 @@
 
     </main>
 
-    <script
-        src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js">
-    </script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
     <script>
-        const MAPTILER_API_KEY = "{{ maptiler_api_key }}";
+        window.MAPTILER_API_KEY = "{{ maptiler_api_key }}";
+        console.log("MapTiler key exists:", !!window.MAPTILER_API_KEY);
     </script>
 
     <script src="{{ url_for('static', filename='app.js') }}"></script>
 
 </body>
+
 </html>

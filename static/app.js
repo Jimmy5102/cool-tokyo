@@ -1,9 +1,7 @@
 const map = L.map("map").setView([35.681236, 139.767125], 12);
 
-const maptilerKey = "{{ maptiler_api_key }}";
-
 L.tileLayer(
-    `https://api.maptiler.com/maps/streets-v2/{z}/{x}/{y}.png?key=${maptilerKey}`,
+    `https://api.maptiler.com/maps/streets-v2/{z}/{x}/{y}.png?key=${window.MAPTILER_API_KEY}`,
     {
         tileSize: 512,
         zoomOffset: -1,
@@ -11,7 +9,6 @@ L.tileLayer(
             '&copy; MapTiler &copy; OpenStreetMap contributors'
     }
 ).addTo(map);
-
 
 // Temporary example cooling shelters
 const shelters = [
@@ -32,11 +29,8 @@ const shelters = [
     }
 ];
 
-
 shelters.forEach((shelter) => {
-
     L.marker([shelter.lat, shelter.lng])
         .addTo(map)
         .bindPopup(`<b>${shelter.name}</b>`);
-
 });
