@@ -9,7 +9,7 @@ app = Flask(__name__)
 
 MAPTILER_API_KEY = os.getenv("MAPTILER_API_KEY")
 
-DATA_PATH = "data/coolshare.csv"
+DATA_PATH = "data/shelters_with_coords.csv"
 
 print("MapTiler key loaded:", bool(MAPTILER_API_KEY))
 
@@ -42,7 +42,9 @@ def shelters():
             "hours": str(row["開放可能日等(開館時間等)"]),
             "capacity": str(row["受入れ\n可能名数"]),
             "share_spot": str(row["TOKYOクールシェア\nスポットの登録"]),
-            "place": str(row["対象の場所"])
+            "place": str(row["対象の場所"]),
+            "latitude": row["latitude"],
+            "longitude": row["longitude"],
         })
 
     return jsonify(data)

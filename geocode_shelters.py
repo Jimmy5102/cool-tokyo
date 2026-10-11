@@ -21,14 +21,14 @@ df["longitude"] = None
 
 for i, row in df.iterrows():
 
-    address = f"東京都{row['区市町村名']}{row['住所']}"
+    address = f"東京都{row['住所']}"
 
     try:
         response = requests.get(
             GEOCODE_URL,
             params={
                 "addr": address,
-                "series": "GAIKU"
+                "series": "ADDRESS"
             },
             timeout=10
         )
